@@ -4,14 +4,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostsComponent } from './component/posts/posts.component';
-import { PostItemComponent } from './component/post-item/post-item.component';
-import { HistoryComponent } from './component/history/history.component';
-import { NavBarComponent } from './component/nav-bar/nav-bar.component';
-import { CreatePostComponent } from './component/create-post/create-post.component';
+import { PostsComponent } from '../../src/app/component/posts/posts.component';
+import { PostItemComponent } from '../../src/app/component/post-item/post-item.component';
+import { HistoryComponent } from '../../src/app/component/history/history.component';
+import { NavBarComponent } from '../../src/app/component/nav-bar/nav-bar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CreatePostComponent } from '../../src/app/component/create-post/create-post.component';
 
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //NgbModule,
+    NgbModule,
     HttpClientModule,
     FormsModule
   ],

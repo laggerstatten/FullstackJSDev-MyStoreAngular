@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfirmationComponent } from './component/confirmation/confirmation.component';
-import { ProductItemDetailComponent } from './component/product-item-detail/product-item-detail.component';
-import { DeliveryDataComponent } from './component/delivery-data/delivery-data.component';
-import { ProductListComponent } from './component/product-list/product-list.component';
+import { PostsComponent } from './component/posts/posts.component';
+import { HistoryComponent } from './component/history/history.component';
 
 const routes: Routes = [
-  {path: '', component: ProductListComponent},
-  {path: 'cart', component: DeliveryDataComponent},
-  {path: 'products/:id', component: ProductItemDetailComponent },
-  {path: 'order', component: ConfirmationComponent},
-  {path: '**', redirectTo: '/' }
+  { path: '', component: PostsComponent },
+  {path: '**', redirectTo: '/' },
+  { path: 'history', component: HistoryComponent }
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
