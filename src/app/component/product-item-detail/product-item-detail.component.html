@@ -1,0 +1,27 @@
+
+<div class="product-container">
+    <img class="product-image" src="{{ product.url }}" />
+<div class="detail-item">
+    <div>{{ product.name }}</div>
+    <br/>
+    <div>{{ product.description }}</div>
+    <br/>
+    <div>{{ product.price | currency: 'USD' }}</div>
+    <br/>
+    <form (ngSubmit)="handleItemAdded()">
+        <div >
+            <div>
+                Select the order quantity
+            </div>
+            <input  [(ngModel)]="quantity"  #quant="ngModel"  name="quantity" type="number" class="select-input" placeholder="0" min="1"/>
+        </div>
+        <div>
+            <input class="button" type="submit" value="Add to cart" [disabled]="quant.invalid"/>
+        </div>
+    </form>
+    <br/>
+    <div>
+        <a class="back-link" routerLink="/"> Check out more products</a>
+    </div>
+    </div>
+</div>
