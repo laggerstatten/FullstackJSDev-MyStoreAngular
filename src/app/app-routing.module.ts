@@ -5,7 +5,7 @@ import { HistoryComponent } from './component/history/history.component';
 
 const routes: Routes = [
   { path: '', component: PostsComponent },
-  {path: '**', redirectTo: '/' },
+  { path: '**', redirectTo: '/' },
   { path: 'history', component: HistoryComponent }
 ];
 
