@@ -2,3 +2,8 @@
 notes.md
 /.angular
 /node_modules
+/mystore/node_modules
+/mystore/.angular
+/.other
+/.other
+/mystore/.vscode
