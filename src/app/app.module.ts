@@ -9,9 +9,15 @@ import { PostsComponent } from './component/posts/posts.component';
 import { PostItemComponent } from './component/post-item/post-item.component';
 import { CreatePostComponent } from './component/create-post/create-post.component';
 import { HistoryComponent } from './component/history/history.component';
+import { ProductListComponent } from './component/product-list/product-list.component';
+import { ProductCardComponent } from './component/product-card/product-card.component';
+import { ProductDetailComponent } from './component/product-detail/product-detail.component';
+
+
 
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     PostItemComponent,
     HistoryComponent,
     NavBarComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    ProductListComponent,
+    ProductCardComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
