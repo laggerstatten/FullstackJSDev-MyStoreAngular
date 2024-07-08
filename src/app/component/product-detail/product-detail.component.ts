@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/model/Product';
 import { Subscription } from 'rxjs';
@@ -16,8 +17,10 @@ export class ProductDetailComponent {
   private productData!: Subscription;
   id!: number;
   product!: Product;
+  quantity: number = 0;
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {
+
+  constructor(private cartService: CartService, private productService: ProductService, private route: ActivatedRoute) {
     this.product = {
       id: 1,
       name: '',
@@ -27,6 +30,9 @@ export class ProductDetailComponent {
     };
   }
 
+  handleItemAdded(): void {
+    this.cartService.addProductToCart(this.product, this.quantity);
+  }
 
   ngOnInit(): void {
     this.routeParams = this.route.params.subscribe((params) => {
@@ -43,6 +49,3 @@ export class ProductDetailComponent {
   }
 
 }
-
-
-
