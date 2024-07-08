@@ -2,8 +2,6 @@
     <div class="order-items">
         <div class="order-header"> {{orderDetails.fullName}}!</div>
         <div class="order-item">
-            <p> You have just spent {{orderDetails.cart.cartValue | currency: 'USD' }} on some really nice stuff and our worker are buzzy to fulfill your order. They will fly it to {{orderDetails.address}} within three days usually.</p>
-            <p> Thanks for your fidelity! </p>
             <form>
                 <a routerLink="/"> <button class="button"> Get back to the product store! </button> </a>
             </form>

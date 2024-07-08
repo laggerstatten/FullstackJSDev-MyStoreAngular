@@ -29,8 +29,8 @@ export class ProductItemDetailComponent {
     };
   }
 
-  handleItemAdded(): void {
-    this.cartService.addToCart(this.product, this.quantity);
+  handleProductAddedToCart(): void {
+    this.cartService.addProductToCart(this.product, this.quantity);
   }
 
   ngOnInit(): void {

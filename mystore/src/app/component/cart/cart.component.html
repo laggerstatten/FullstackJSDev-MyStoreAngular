@@ -3,7 +3,7 @@
     <!-- cart element -->
     <app-cart-item *ngFor="let cartItem of cartItemList" [product]="cartItem.product" [quantity]="cartItem.quantity" (quantityEmitter)="handleQuantityChanged($event)"></app-cart-item>
   </div>
-  <div class="Total" *ngIf="cartItemList !== undefined && cartItemList.length !== 0">Total: {{ cart.cartValue }}</div>
+  <div class="Total" *ngIf="cartItemList !== undefined && cartItemList.length !== 0">Total: {{ cart.cartPriceTotal }}</div>
   <br />
   <div *ngIf="cartItemList !== undefined && cartItemList.length !== 0">
   </div>

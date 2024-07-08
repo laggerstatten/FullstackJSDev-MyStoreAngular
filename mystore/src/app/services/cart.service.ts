@@ -18,14 +18,14 @@ export class CartService {
     this.emptyCart();
   }
   private emptyCart(): void {
-    this.cart = { items: null, cartValue: 0 };
+    this.cart = { items: null, cartPriceTotal: 0 };
   }
 
   getCart() {
     return this.cart;
   }
 
-  addToCart(product: Product, quantity: number): void {
+  addProductToCart(product: Product, quantity: number): void {
     if (this.cart.items === null) {
       this.cart.items = {};
     }
@@ -40,10 +40,10 @@ export class CartService {
       this.cart.items[product.id].quantity += quantity;
     }
 
-    this.cart.cartValue = 0;
+    this.cart.cartPriceTotal = 0;
     for (let index in this.cart.items) {
       const item = this.cart.items[index];
-      this.cart.cartValue += item.product.price * item.quantity;
+      this.cart.cartPriceTotal += item.product.price * item.quantity;
     }
 
   }
@@ -54,7 +54,7 @@ export class CartService {
 
       if (quantity > 0) {
         const item = this.cart.items[productId];
-        this.cart.cartValue += item.product.price * (quantity - item.quantity);
+        this.cart.cartPriceTotal += item.product.price * (quantity - item.quantity);
         item.quantity = quantity;
       }
       else {

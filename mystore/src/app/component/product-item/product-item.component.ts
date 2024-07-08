@@ -19,8 +19,8 @@ export class ProductItemComponent {
 
   constructor(private cartService: CartService) { }
 
-  handleItemAdded(): void {
-    this.cartService.addToCart(this.product, this.quantity);
+  handleProductAddedToCart(): void {
+    this.cartService.addProductToCart(this.product, this.quantity);
     this.quantity = 0;
   }
 

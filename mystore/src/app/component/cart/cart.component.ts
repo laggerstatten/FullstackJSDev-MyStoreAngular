@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
 
   constructor(private router: Router, private cartService: CartService) { }
 
-  updateItemList(): void {
+  updateCartItemList(): void {
     if (this.cart.items !== null) {
       this.cartItemList = Object
         .keys(this.cart.items)
@@ -26,12 +26,12 @@ export class CartComponent implements OnInit {
 
   handleQuantityChanged(cartItem: CartItems): void {
     this.cart = this.cartService.updateQuantity(cartItem.product.id, cartItem.quantity);
-    this.updateItemList();
+    this.updateCartItemList();
   }
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
-    this.updateItemList();
+    this.updateCartItemList();
   }
 
 }

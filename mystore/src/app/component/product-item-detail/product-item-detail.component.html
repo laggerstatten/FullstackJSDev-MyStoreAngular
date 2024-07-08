@@ -7,7 +7,7 @@
         <br />
         <div>{{ product.price }}</div>
         <br />
-        <form (ngSubmit)="handleItemAdded()">
+        <form (ngSubmit)="handleProductAddedToCart()">
             <div>
                 <div> Select the order quantity </div>
                 <input [(ngModel)]="quantity" #quant="ngModel" name="quantity" type="number" class="select-input" placeholder="0" min="1" />
