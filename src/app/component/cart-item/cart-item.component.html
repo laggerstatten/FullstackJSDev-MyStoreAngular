@@ -1,22 +1,47 @@
-<div class="card mb-3">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img [src]="product.url" class="img-fluid rounded-start" alt="Product Image">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text">{{ product.description }}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <span class="fw-bolder">${{ product.price }}</span>
-                    </div>
-                    <div class="input-group" style="max-width: 10rem;">
-                        <input type="number" class="form-control text-center" [(ngModel)]="quantity" (ngModelChange)="handleQuantityUpdated(quantity)" />
-                        <!-- <button class="btn btn-outline-dark" type="button" (click)="handleItemRemoved()">Remove</button> --> <!-- TODO implement remove button-->
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- <div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="product.url" class="img-fluid rounded-start" alt="Product Image">
     </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <span class="fw-bolder">${{ product.price }}</span>
+          </div>
+          <div class="input-group" style="max-width: 10rem;">
+            <input type="number" class="form-control text-center" [(ngModel)]="quantity" (ngModelChange)="handleQuantityUpdated(quantity)" />
+            <button class="btn btn-outline-dark" type="button" (click)="handleProductRemovedFromCart()">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img [src]="item.product.url" class="img-fluid rounded-start" alt="Product Image">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.product.name }}</h5>
+        <p class="card-text">{{ item.product.description }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <span class="fw-bolder">${{ item.product.price }}</span>
+          </div>
+          <div class="input-group" style="max-width: 10rem;">
+            <input type="number" class="form-control text-center" [(ngModel)]="item.quantity" (ngModelChange)="handleQuantityUpdated(item.quantity)" />
+            <button class="btn btn-outline-dark" type="button" (click)="handleProductRemovedFromCart()">Remove</button> <!-- TODO implement remove button-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
