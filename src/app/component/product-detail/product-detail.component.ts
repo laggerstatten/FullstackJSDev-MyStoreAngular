@@ -19,8 +19,11 @@ export class ProductDetailComponent {
   product!: Product;
   quantity: number = 0;
 
-
-  constructor(private cartService: CartService, private productService: ProductService, private route: ActivatedRoute) {
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService,
+    private route: ActivatedRoute
+  ) {
     this.product = {
       id: 1,
       name: '',

@@ -13,7 +13,6 @@ export class ProductCardComponent implements OnInit {
 
   quantity: number = 0;
 
-
   constructor(private cartService: CartService, ) {
     this.product = {
       id: 1,

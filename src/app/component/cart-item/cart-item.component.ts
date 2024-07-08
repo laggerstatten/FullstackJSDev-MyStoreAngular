@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
+import CartItems from 'src/app/model/Cart-Items';
+import { Product } from 'src/app/model/Product';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css']
 })
-export class CartItemComponent implements OnInit {
+export class CartItemComponent {
+  @Input() product!: Product;
+  @Input() quantity!: number;
+  @Output() quantityEmitter: EventEmitter<CartItems> = new EventEmitter();
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
-  ngOnInit(): void {
+  handleQuantityUpdated(quantity: number): void {
+    this.quantityEmitter.emit({
+      product: this.product,
+      quantity: quantity
+    });
   }
 
 }
