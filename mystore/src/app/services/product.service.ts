@@ -13,7 +13,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getListProduct(): Observable<Product[]> {
+  getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.dataSource);
   }
 }

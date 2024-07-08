@@ -1,10 +1,18 @@
-<div class="cart-container">
-  <div>
-    <!-- cart element -->
-    <app-cart-item *ngFor="let cartItem of cartItemList" [product]="cartItem.product" [quantity]="cartItem.quantity" (quantityEmitter)="handleQuantityChanged($event)"></app-cart-item>
-  </div>
-  <div class="Total" *ngIf="cartItemList !== undefined && cartItemList.length !== 0">Total: {{ cart.cartPriceTotal }}</div>
-  <br />
-  <div *ngIf="cartItemList !== undefined && cartItemList.length !== 0">
-  </div>
-</div>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="fw-bolder mb-4">Shopping Cart</h1>
+
+                <!-- cart element -->
+                <app-cart-item *ngFor="let cartItem of cartItemList" [product]="cartItem.product" [quantity]="cartItem.quantity" (quantityEmitter)="handleQuantityChanged($event)"></app-cart-item>
+
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <h3 class="Total" *ngIf="cartItemList !== undefined && cartItemList.length !== 0">Total: {{ cart.cartPriceTotal }}</h3>
+                    <!-- <h3>Total: ${{ getTotal() }}</h3> -->
+                    <!-- <button class="btn btn-outline-dark" (click)="checkout()">Checkout</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -37,7 +37,7 @@ export class ProductItemDetailComponent {
     this.routeParams = this.route.params.subscribe((params) => {
       this.id = parseInt(params['id']);
     });
-    this.productData = this.productService.getListProduct().subscribe((data) => {
+    this.productData = this.productService.getProducts().subscribe((data) => {
       this.product = data.filter((product) => (product.id === this.id))[0];
     });
   }

@@ -10,21 +10,42 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./product-list.component.css']
 })
 
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit {
 
-  private productData!: Subscription;
-  products!: Product[];
+  /**
+    private productData!: Subscription;
+    products!: Product[];
+  
+    constructor(
+      private productService: ProductService
+    ) { }
+  
+    ngOnInit(): void {
+      this.productData = this.productService.getListProduct().subscribe((data) => {
+        this.products = data;
+      });
+    }
+  
+    ngOnDestroy(): void {
+      this.productData.unsubscribe;
+    }
+  */
 
-  constructor(private productService: ProductService) { }
+  title: string = 'Products';
+  products: Product[] = [];
+
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
-    this.productData = this.productService.getListProduct().subscribe((data) => {
-      this.products = data;
-    });
-  }
+    this.productService.getProducts().subscribe(res => {
+      for (let index = 0; index < res.length; index++) {
+        const product = res[index];
+      }
 
-  ngOnDestroy(): void {
-    this.productData.unsubscribe;
+      this.products = res;
+    });
   }
 
 }
