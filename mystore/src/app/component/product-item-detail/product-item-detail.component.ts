@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
-import Product from 'src/app/model/product';
+import Product from 'src/app/model/Product';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -21,13 +21,16 @@ export class ProductItemDetailComponent {
 
   constructor(private cartService: CartService, private productService: ProductService, private route: ActivatedRoute) {
     this.product = {
-      id: 0, name: 'dummy', price: 0, url: '', description: ''
+      id: 0,
+      name: 'dummy',
+      price: 0,
+      url: '',
+      description: ''
     };
   }
 
   handleItemAdded(): void {
     this.cartService.addToCart(this.product, this.quantity);
-    alert(`We have put  ${this.quantity} piece${(this.quantity === 1) ? '' : 's'} of ${this.product.name} in your cart shopping.`);
   }
 
   ngOnInit(): void {

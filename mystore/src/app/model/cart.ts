@@ -1,4 +1,4 @@
-import CartItems from './cart-items'
+import CartItems from './Cart-Items'
 
 type Cart = {
     items: { [id: number]: CartItems } | null,

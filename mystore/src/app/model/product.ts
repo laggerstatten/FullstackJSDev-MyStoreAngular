@@ -1,9 +1,9 @@
-type Product={
-id: number,
-url: string,
-name:string,
-price: number,
-description: string
+type Product = {
+    id: number,
+    url: string,
+    name: string,
+    price: number,
+    description: string
 };
 
 export default Product;

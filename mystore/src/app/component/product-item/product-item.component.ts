@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
-import Product from 'src/app/model/product';
+import Product from 'src/app/model/Product';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -21,7 +21,6 @@ export class ProductItemComponent {
 
   handleItemAdded(): void {
     this.cartService.addToCart(this.product, this.quantity);
-    alert(`We have put  ${this.quantity} piece${(this.quantity === 1) ? '' : 's'} of ${this.product.name} in your cart shopping.`);
     this.quantity = 0;
   }
 
