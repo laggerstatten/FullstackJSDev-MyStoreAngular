@@ -42,8 +42,7 @@ export class CartComponent implements OnInit {
   }
 
   checkout(): void {
-    console.log('Proceeding to checkout...');
-    // Implement checkout logic here
+    this.router.navigateByUrl('/purchase');
   }
 
   ngOnInit(): void {

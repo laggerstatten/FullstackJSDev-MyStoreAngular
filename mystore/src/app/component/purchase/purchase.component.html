@@ -1,21 +1,24 @@
-<div>
-  <form class="cart-panel" #orderForm="ngForm" (ngSubmit)="sendOrder()">
-    <br />
-    <div>
-      <label for="full-name">Full name</label><br />
-      <input type="text" name="full-name" [(ngModel)]="fullname" placeholder="Homer Simpson" required minlength="6" #nameField="ngModel">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="cart-panel" #orderForm="ngForm" (ngSubmit)="sendOrder()">
+        <div class="mb-3">
+          <label for="full-name" class="form-label">Full Name</label>
+          <input type="text" id="full-name" name="full-name" class="form-control" [(ngModel)]="fullname" placeholder="First Last">
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" id="address" name="address" class="form-control" [(ngModel)]="address" placeholder="3301 4th Street, Lubbock, TX 79415">
+        </div>
+
+        <div class="mb-3">
+          <label for="credit-card-number" class="form-label">Credit Card Number</label>
+          <input type="text" id="credit-card-number" name="credit-card" class="form-control" [(ngModel)]="creditCardNumber" placeholder="16 digits">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Order</button>
+      </form>
     </div>
-    <br />
-    <div>
-      <label for="address">Address</label><br />
-      <input type="text" name="address" [(ngModel)]="address" placeholder="742 Evergreen Terrace, Springfield" required minlength="12" #addressField="ngModel">
-    </div>
-    <br />
-    <div>
-      <label for="credit-card-number">Credit card number</label><br />
-      <input type="string" name="credit-card" [(ngModel)]="creditCardNumber" placeholder="16 digits" required pattern="^[0-9]{16,}$" minlength="16" maxlength="16" #creditCardNumberField="ngModel" (keypress)="($event.charCode >= 48 && $event.charCode < 58)">
-    </div>
-    <br />
-    <button type="submit" class="button" [disabled]="orderForm.invalid">Send order</button>
-  </form>
+  </div>
 </div>
