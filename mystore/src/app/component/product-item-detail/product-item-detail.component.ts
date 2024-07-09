@@ -19,7 +19,11 @@ export class ProductItemDetailComponent {
   product!: Product;
   quantity: number = 0;
 
-  constructor(private cartService: CartService, private productService: ProductService, private route: ActivatedRoute) {
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService,
+    private route: ActivatedRoute
+  ) {
     this.product = {
       id: 0,
       name: 'dummy',
@@ -31,6 +35,7 @@ export class ProductItemDetailComponent {
 
   handleProductAddedToCart(): void {
     this.cartService.addProductToCart(this.product, this.quantity);
+    this.quantity = 0;
   }
 
   ngOnInit(): void {

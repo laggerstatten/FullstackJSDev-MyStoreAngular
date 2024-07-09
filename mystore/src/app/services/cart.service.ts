@@ -4,7 +4,6 @@ import Cart from '../model/Cart';
 import Order from '../model/Order';
 import Product from '../model/Product';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +16,7 @@ export class CartService {
   constructor() {
     this.emptyCart();
   }
+
   private emptyCart(): void {
     this.cart = { items: null, cartPriceTotal: 0 };
   }
@@ -45,10 +45,9 @@ export class CartService {
       const item = this.cart.items[index];
       this.cart.cartPriceTotal += item.product.price * item.quantity;
     }
-
   }
 
-  updateQuantity(productId: number, quantity: number): Cart {
+  updateProductQuantity(productId: number, quantity: number): Cart {
 
     if (this.cart.items[productId] !== undefined && this.cart.items !== null) {
 
@@ -61,6 +60,16 @@ export class CartService {
         delete this.cart.items[productId];
       }
 
+    }
+    return this.cart;
+  }
+
+  removeProductFromCart(productId: number): Cart {
+
+    if (this.cart.items[productId] !== undefined && this.cart.items !== null) {
+      const item = this.cart.items[productId];
+      this.cart.cartPriceTotal = this.cart.cartPriceTotal - (item.product.price * item.quantity);
+      delete this.cart.items[productId];
     }
     return this.cart;
   }

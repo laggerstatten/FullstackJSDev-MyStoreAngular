@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   }
 
   handleQuantityChanged(cartItem: CartItems): void {
-    this.cart = this.cartService.updateQuantity(cartItem.product.id, cartItem.quantity);
+    this.cart = this.cartService.updateProductQuantity(cartItem.product.id, cartItem.quantity);
     this.updateCartItemList();
   }
 

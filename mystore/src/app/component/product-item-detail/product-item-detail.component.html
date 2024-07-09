@@ -1,24 +1,27 @@
-<div class="product-container">
-    <img class="product-image" src="{{ product.url }}" />
-    <div class="detail-item">
-        <div>{{ product.name }}</div>
-        <br />
-        <div>{{ product.description }}</div>
-        <br />
-        <div>{{ product.price }}</div>
-        <br />
-        <form (ngSubmit)="handleProductAddedToCart()">
-            <div>
-                <div> Select the order quantity </div>
-                <input [(ngModel)]="quantity" #quant="ngModel" name="quantity" type="number" class="select-input" placeholder="0" min="1" />
+<section class="py-5" *ngIf="product">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6">
+                <img class="product-image" src="{{ product.url }}" />
             </div>
-            <div>
-                <input class="button" type="submit" value="Add to cart" [disabled]="quant.invalid" />
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
+                <div class="fs-5 mb-5">
+                    <span>${{ product.price }}</span>
+                </div>
+                <p class="lead">{{ product.description }}</p>
+                <div class="d-flex">
+                    <label for="quantity-{{ product.id }}" class="form-label">Quantity</label>
+                    <input type="number" id="quantity-{{ product.id }}" class="form-control" [(ngModel)]="quantity" min="1" value="1">
+                    <div class="text-center">
+                        <button class="btn btn-outline-dark mt-auto" (click)="handleProductAddedToCart()">Add to cart</button>
+                    </div>
+                </div>
             </div>
-        </form>
-        <br />
-        <div>
-            <a class="back-link" routerLink="/"> Check out more products</a>
         </div>
     </div>
-</div>
+</section>
+
+<section class="py-5" *ngIf="!product">
+    <p>Product not found.</p>
+</section>

@@ -12,25 +12,6 @@ import { CartService } from 'src/app/services/cart.service';
 
 export class ProductListComponent implements OnInit {
 
-  /**
-    private productData!: Subscription;
-    products!: Product[];
-  
-    constructor(
-      private productService: ProductService
-    ) { }
-  
-    ngOnInit(): void {
-      this.productData = this.productService.getListProduct().subscribe((data) => {
-        this.products = data;
-      });
-    }
-  
-    ngOnDestroy(): void {
-      this.productData.unsubscribe;
-    }
-  */
-
   title: string = 'Products';
   products: Product[] = [];
 
