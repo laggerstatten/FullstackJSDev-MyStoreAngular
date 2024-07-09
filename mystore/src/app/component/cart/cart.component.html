@@ -5,7 +5,8 @@
                 <h1 class="fw-bolder mb-4">Shopping Cart</h1>
 
                 <!-- cart element -->
-                <app-cart-item *ngFor="let cartItem of cartItemList" [product]="cartItem.product" [quantity]="cartItem.quantity" (quantityEmitter)="handleQuantityChanged($event)"></app-cart-item>
+                <app-cart-item *ngFor="let cartItem of cartItemList" [product]="cartItem.product" [quantity]="cartItem.quantity" (quantityEmitter)="handleQuantityChanged($event)" (removalEmitter)="handleProductRemovedFromCart($event)">
+                </app-cart-item>
 
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <h3 class="Total" *ngIf="cartItemList !== undefined && cartItemList.length !== 0">Total: {{ cart.cartPriceTotal }}</h3>
