@@ -74,20 +74,22 @@ export class CartService {
     return this.cart;
   }
 
-  setOrder(fullname: string, address: string, creditCartNumber: string): void {
-    this.order = {
-      cart: this.cart,
-      fullName: fullname,
-      address: address,
-      creditCardNumber: creditCartNumber
-    };
-  }
-
-  getOrder(): Order {
-    const placedOrder = this.order;
-    this.setOrder('', '', '');
-    this.emptyCart();
-    return placedOrder;
-  }
+  /**
+    setOrder(fullname: string, address: string, creditCartNumber: string): void {
+      this.order = {
+        cart: this.cart,
+        fullName: fullname,
+        address: address,
+        creditCardNumber: creditCartNumber
+      };
+    }
+  
+    getOrder(): Order {
+      const placedOrder = this.order;
+      this.setOrder('', '', '');
+      this.emptyCart();
+      return placedOrder;
+    }
+  */
 
 }

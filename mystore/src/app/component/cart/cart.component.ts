@@ -14,7 +14,10 @@ export class CartComponent implements OnInit {
   cart!: Cart;
   cartItemList!: CartItems[];
 
-  constructor(private router: Router, private cartService: CartService) { }
+  constructor(
+    private router: Router,
+    private cartService: CartService
+  ) { }
 
   updateCartItemList(): void {
     if (this.cart.items !== null) {
@@ -34,6 +37,14 @@ export class CartComponent implements OnInit {
     this.updateCartItemList();
   }
 
+  getTotal(): number {
+    return this.cartItemList.reduce((total, item) => total + item.product.price * item.quantity, 0);
+  }
+
+  checkout(): void {
+    console.log('Proceeding to checkout...');
+    // Implement checkout logic here
+  }
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
