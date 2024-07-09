@@ -13,6 +13,7 @@ export class CartItemComponent {
   @Input() product!: Product;
   @Input() quantity!: number;
   @Output() quantityEmitter: EventEmitter<CartItems> = new EventEmitter();
+  @Output() removalEmitter: EventEmitter<CartItems> = new EventEmitter();
 
   constructor(private cartService: CartService) { }
 
@@ -20,6 +21,13 @@ export class CartItemComponent {
     this.quantityEmitter.emit({
       product: this.product,
       quantity: quantity
+    });
+  }
+
+  handleProductRemovedFromCart(): void {
+    this.removalEmitter.emit({
+      product: this.product,
+      quantity: 0
     });
   }
 

@@ -1,17 +1,24 @@
-<div class="cart-item">
-    <div>
-        <a routerLink="/products/{{ product.id }}"> <img src="{{ product.url }}" /> </a>
-    </div>
-    <div class="cart-item-details">
-        <div>{{ product.name }}</div>
-        <br />
-        <br />
-        <div>{{ product.price }}</div>
-        <br />
-        <br />
-        <input name="quantity" type="number" [(ngModel)]="quantity" (ngModelChange)="handleQuantityChanged($event)" />
-        <br />
-        <br />
-        <div class="subTotal"> SubTotal: {{ product.price * quantity }}</div>
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <a routerLink="/products/{{ product.id }}"> <img src="{{ product.url }}" /> </a>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="fw-bolder">${{ product.price }}</span>
+                    </div>
+                    <div class="input-group" style="max-width: 10rem;">
+                        <input type="number" class="form-control text-center" [(ngModel)]="quantity" (ngModelChange)="handleQuantityChanged($event)" />
+                        <!-- <button class="btn btn-outline-dark" type="button" (click)="handleProductRemovedFromCart()">Remove</button> --> <!-- TODO implement remove button-->
+                        <button class="btn btn-outline-dark" type="button" (click)="handleProductRemovedFromCart()">Remove</button> <!-- TODO implement remove button-->
+                    </div>
+                    <div class="subTotal"> SubTotal: {{ product.price * quantity }}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
